@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+   <style>
+     textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+     .text {
+       	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 20vw;
+		
+	};
+     }
+   </style>
+</head>
+<body style="background-color: black; width:100% !important; height:100% !important">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous">
+ <script src="https://kit.fontawesome.com/ce6e920b0f.js" crossorigin="anonymous"></script>
+
+  <div class="card   " style="width: 40%; height:60%; left:30%; right:30%; top:30%; bottom:10%; background: black">
+ <div style="height:20%;width:50%; left:25%; right:25%; position:relative" class="text text-center display-4">FMusic  <i class="fas fa-music text-white"></i></div>
+ <div style="height:10%;width:80%; left:10%; right:10%; position:relative" class="text-white text-center h3" > <p >because music should be free.</p></div>
+
+ <button class="btn text-white" style="background:#330867; margin-top:5mm; width:50%; left: 25%; right:25%; position: relative; border-radius: 7mm" >Continue <i class="fas fa-arrow-right text-white"></i></button>
+
+
+</div>
+
+   <script >
+ document.querySelector('button.btn').addEventListener('click', () => {
+     location.href = '/login'
+ })
+
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+   <style>
+     textarea:hover, 
+input:hover, 
+textarea:active, 
+input:active, 
+textarea:focus, 
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+     .text {
+       	background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font: {
+		size: 20vw;
+		
+	};
+     }
+   </style>
+</head>
+<body style="background-color: black; width:100% !important; height:100% !important">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous">
+ <script src="https://kit.fontawesome.com/ce6e920b0f.js" crossorigin="anonymous"></script>
+
+  <div class="card   " style="width: 40%; height:80%; left:30%; right:30%; top:10%; bottom:10%; background: black">
+ <div style="height:20%;width:50%; left:25%; right:25%; position:relative" class="text text-center display-4">FMusic  <i class="fas fa-music text-white"></i></div>
+ <div style="height:10%;width:80%; left:10%; right:10%; position:relative" class="text-white text-center h3" > <p >Create an account or Login</p></div>
+ <input type="text" id="email" style="background: black; margin:4mm; width:80%; border: none; left:10%; right:10%; border-bottom: 3px solid #30CFD0 !important; position: relative; height:10%" placeholder="Enter your email / username" class="text-white text-center"> 
+ <input type="password" id="password" style="background: black; margin:4mm; width:80%; border: none; left:10%; right:10%; border-bottom:3px solid #30CFD0 !important; position: relative; height:10%" placeholder="Enter your password" class="text-white text-center">
+ <button class="btn text-white" style="background:#330867; margin-top:10mm; width:50%; left: 25%; right:25%; position: relative; border-radius: 7mm" ><a href="#" class="text-white"id="lgin">Login</a> / <a href="#" class="text-white" id="sgup">Sign Up</a></button>
+
+
+</div>
+
+    <script>
+     
+let lgin= document.getElementById('lgin');
+let sgup = document.getElementById('sgup');
+lgin.addEventListener('click', () => {
+  fetch('/loginBuffer/?queryType=login&login=' + document.getElementById('email').value + '&pass=' + document.getElementById('password').value)
+  .then((resp) => resp.json())
+  .then((json_data) => {
+    if(json_data.message === "Login Successful!") {
+       document.cookie = (document.getElementById('email').value + ":" +  document.getElementById('password').value);
+       location.href = '/search/songs';
+    }
+    else {
+      alert(json_data.message);
+
+    }
+    
+   
+  })
+})
+sgup.addEventListener('click', () => {
+   fetch('/loginBuffer/?queryType=sgup&login=' + document.getElementById('email').value + '&pass=' + document.getElementById('password').value)
+   .then((resp) => resp.json())
+   .then((json_data) => {
+     if(json_data.message === "Requested user not found in the database") {
+       document.cookie =  document.cookie = (document.getElementById('email').value + ":" + document.getElementById('password').value);
+       location.href = '/search/songs'
+     }
+     else {
+       alert(json_data.message)
+     }
+   });
+})
+
+
+
+
+    </script>
+</body>
+
+</html>

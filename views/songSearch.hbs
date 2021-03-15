@@ -312,6 +312,12 @@ inputButton.addEventListener('click', () => {
   location.href = '/search/songs?query=' + searchQuery.value;
 })
 
+searchQuery.addEventListener('keydown', (ev) => {
+ if(ev.key === "Enter") {
+    location.href = '/search/songs?query=' + searchQuery.value;
+ }
+})
+
 let songsMain = document.getElementById('songs-main');
 let albumsMain = document.getElementById('albums-main');
 let playlistsMain = document.getElementById('playlists-main');
